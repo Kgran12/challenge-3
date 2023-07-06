@@ -29,14 +29,47 @@ function generatePassword() {
   }
 
   if (hasLower === true) {
-    for (i = 0; i < lowerCase.length; i++){
-      
+    for (i = 0; i < passwordLength; i++){
+      var randomIndex = Math.floor(Math.random() * lowerCase.length);
+      var ranChar = lowerCase[randomIndex]
+      pool.push(ranChar)
     }
   }
 
+  if (hasUpper === true) {
+    for (i = 0; i < passwordLength; i++){
+      var randomIndex = Math.floor(Math.random() * upperCase.length);
+      var ranChar = upperCase[randomIndex]
+      pool.push(ranChar)
+    }
+
+  }
+  
+  if (hasSymbols === true) {
+    for (i = 0; i < passwordLength; i++){
+      var randomIndex = Math.floor(Math.random() * symbols.length);
+      var ranChar = symbols[randomIndex]
+      pool.push(ranChar)
+    }
+  }
+
+  if (hasNumbers === true) {
+    for (i = 0; i < passwordLength; i++){
+      var randomIndex = Math.floor(Math.random() * numbers.length);
+      var ranChar = numbers[randomIndex]
+      pool.push(ranChar)
+    }
+  }
+
+  for (i = 0; i < passwordLength; i++){
+    var randomIndex = Math.floor(Math.random() * pool.length);
+    var ranChar = pool[randomIndex]
+    password.push(ranChar)
+  }
+
+  return password.join("")
+
 }
-
-
 
 
 // Assignment Codes
